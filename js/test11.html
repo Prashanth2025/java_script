@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function add() {
+        let A, B;
+        A = Number(prompt("enter the first number to add"));
+        B = Number(prompt("enter the second number to add"));
+        let res = A + B;
+        console.log(A + " + " + B + " = " + res);
+      }
+      function sub() {
+        let A, B;
+        A = Number(prompt("enter the first number to subtract"));
+        B = Number(prompt("enter the second number to subtract"));
+        let res = A - B;
+        console.log(A + " - " + B + " = " + res);
+      }
+      function mul() {
+        let A, B;
+        A = Number(prompt("enter the first number to multiply"));
+        B = Number(prompt("enter the second number to multiply"));
+        let res = A * B;
+        console.log(A + " * " + B + " = " + res);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="add();">ADD</button>
+    <button onclick="sub();">SUB</button>
+    <button onclick="mul();">MUL</button>
+  </body>
+</html>
