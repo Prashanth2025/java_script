@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-top: 200px;
+      }
+      #display {
+        font-size: 30px;
+        margin: 20px;
+        display: block;
+        transition: color 2s ease;
+      }
+      button {
+        font-size: 20px;
+        padding: 10px;
+        cursor: pointer;
+        border: 2px solid black;
+        background: #eee;
+        font-weight: bold;
+      }
+      h1 {
+        color: blueviolet;
+        transition: color 2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="display">[Display will show here]</h1>
+    <button onclick="hi();">Hi</button>
+    <button onclick="hello();">Hello</button>
+    <button onclick="bye();">Bye</button>
+
+    <script>
+      let display = document.getElementById("display");
+      let h1 = document.querySelector("h1");
+      h1.style.color = "blue";
+      function hi() {
+        display.textContent = "hi how are u?";
+        display.style.color = "red";
+      }
+      function hello() {
+        display.textContent = "hello how are u?";
+        display.style.color = "blue";
+      }
+      function bye() {
+        display.textContent = "bye..! see u later";
+        display.style.color = "green";
+      }
+    </script>
+  </body>
+</html>

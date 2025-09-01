@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li class="item1">Item 1</li>
+      <li id="item2">Item 2</li>
+      <li class="item3">Item 3</li>
+      <li class="item3">Item 6</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+    <script>
+      let idName = document.getElementById("item2");
+      console.log(idName);
+      let className = document.getElementsByClassName("item1");
+      console.log(className);
+      let Element = document.getElementsByTagName("li");
+      console.log(Element);
+      let Query = document.querySelectorAll("li");
+      console.log(Query);
+    </script>
+  </body>
+</html>

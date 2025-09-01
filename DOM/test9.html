@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      div {
+        height: 100px;
+        width: 100px;
+        border: 2px solid black;
+        padding: 20px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg">
+      <h2>bg-color</h2>
+      <button id="bgColor">maathu</button>
+    </div>
+    <script>
+      let color = document.querySelector("#bg");
+      let bg = document.querySelector("#bgColor");
+
+      bg.addEventListener("click", function () {
+        color.style.backgroundColor = "red";
+      });
+    </script>
+  </body>
+</html> 

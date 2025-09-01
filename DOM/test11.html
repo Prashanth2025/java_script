@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Instagram Post(session storage)</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <style>
+      body {
+        background-color: white;
+        height: 500px;
+        width: 400px;
+        margin: auto;
+        padding: auto;
+      }
+      .post-card {
+        max-width: 400px;
+        margin: 50px auto;
+        height: 500px;
+      }
+      .post-img {
+        object-fit: contain;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card post-card shadow-sm">
+        <img
+          src="https://m.media-amazon.com/images/I/61fyBGuO18L._UY1000_.jpg"
+          class="card-img-top post-img"
+          alt="post"
+        />
+        <p class="card-text text-center mt-2">
+          <strong>SPORTS WATCH</strong>
+        </p>
+
+        <div class="card-body text-center">
+          <!-- Like count -->
+          <h5 id="like">0</h5>
+          <button id="likeBtn" class="btn btn-outline-danger me-2">
+            <i class="bi bi-hand-thumbs-up-fill"></i>
+          </button>
+
+          <!-- Dislike count -->
+          <h5 id="dislike">0</h5>
+          <button id="dislikeBtn" class="btn btn-outline-warning me-2">
+            <i class="bi bi-hand-thumbs-down-fill"></i>
+          </button>
+          <div class="text-center mt-3 dark">
+            <h5>
+              <strong>Total Reactions: <span id="totalCount">0</span></strong>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let likeBtn = document.getElementById("likeBtn");
+      let dislikeBtn = document.getElementById("dislikeBtn");
+
+      let likeCount = document.getElementById("like");
+      let dislikeCount = document.getElementById("dislike");
+      let totalCount = document.getElementById("totalCount");
+
+      let likes = Number(sessionStorage.getItem("likes")) || 0;
+      let dislikes = Number(sessionStorage.getItem("dislikes")) || 0;
+
+      function updateTotals() {
+        likeCount.textContent = likes;
+        dislikeCount.textContent = dislikes;
+        totalCount.textContent = likes + dislikes;
+      }
+
+      updateTotals();
+
+      likeBtn.addEventListener("click", function () {
+        likes++;
+        updateTotals();
+        sessionStorage.setItem("likes", likes);
+      });
+
+      dislikeBtn.addEventListener("click", function () {
+        dislikes++;
+        updateTotals();
+        sessionStorage.setItem("dislikes", dislikes);
+      });
+    </script>
+  </body>
+</html>

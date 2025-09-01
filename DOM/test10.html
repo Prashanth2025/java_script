@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      #bg {
+        height: 500px;
+        width: 500px;
+        border: 2px solid black;
+        padding: 20px;
+        background-color: yellow;
+        text-align: center;
+      }
+      .text {
+        position: relative;
+        margin-top: 200px;
+        font-size: 20px;
+      }
+      button {
+        font-size: 18px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg">
+      <div class="text">
+        <h2>bg-color</h2>
+        <button id="rgbColor">maathu</button>
+      </div>
+    </div>
+    <script>
+      let bg = document.getElementById("bg");
+      let rgb = document.getElementById("rgbColor");
+
+      function rgbColorChange() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return `rgb(${r},${g},${b})`;
+      }
+
+      rgbColor.addEventListener("click", function () {
+        bg.style.backgroundColor = rgbColorChange();
+      });
+    </script>
+  </body>
+</html>

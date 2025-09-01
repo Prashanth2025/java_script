@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Theme</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      button {
+        font-size: large;
+        border: 1px solid black;
+        margin: 5px;
+        gap: 30px;
+        text-wrap: wrap;
+        font-weight: bold;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      button:hover {
+        background-color: lightblue;
+        cursor: pointer;
+      }
+      #heading {
+        text-align: center;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      #message {
+        color: blue;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        margin-top: 20px;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">buttons to change theme</h1>
+    <div>
+      <button class="dark1">dark theme(local storage)</button>
+      <button class="light1">light theme(local storage)</button>
+      <button class="dark2">dark theme(session storage)</button>
+      <button class="light2">light theme(session storage)</button>
+    </div>
+    <p id="message"></p>
+
+    <script>
+      let heading = document.querySelector("#heading");
+      let message = document.querySelector("#message");
+      let darktheme1 = document.querySelector(".dark1");
+      let lighttheme1 = document.querySelector(".light1");
+      let darktheme2 = document.querySelector(".dark2");
+      let lighttheme2 = document.querySelector(".light2");
+
+      darktheme1.addEventListener("click", function () {
+        document.body.style.backgroundColor = "black";
+        heading.style.color = "white";
+        localStorage.setItem("theme", "dark");
+        alert("dark theme(ls)");
+        message.textContent = "DARK THEME ON LOCAL STORAGE";
+      });
+      lighttheme1.addEventListener("click", function () {
+        document.body.style.backgroundColor = "white";
+        heading.style.color = "black";
+        localStorage.setItem("theme", "white");
+        alert("light theme(ls)");
+        message.textContent = "LIGHT THEME ON LOCAL STORAGE";
+      });
+      darktheme2.addEventListener("click", function () {
+        document.body.style.backgroundColor = "black";
+        heading.style.color = "white";
+        sessionStorage.setItem("theme", "dark");
+        alert("dark theme(ss)");
+        message.textContent = "DARK THEME ON SESSION STORAGE";
+      });
+      lighttheme2.addEventListener("click", function () {
+        document.body.style.backgroundColor = "white";
+        heading.style.color = "black";
+        sessionStorage.setItem("theme", "white");
+        alert("light theme(ss)");
+        message.textContent = "LIGHT THEME ON SESSION STORAGE";
+      });
+    </script>
+  </body>
+</html>
