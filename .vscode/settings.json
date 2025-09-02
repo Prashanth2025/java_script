@@ -1,3 +1,15 @@
 {
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.suggest.showWords": true,
+  "editor.parameterHints.enabled": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.tabCompletion": "on",
+  "editor.snippetSuggestions": "inline",
+  "editor.wordBasedSuggestions": "allDocuments",
   "liveServer.settings.port": 5501
 }

@@ -30,59 +30,77 @@
     </style>
   </head>
   <body>
- 
- <div id="watch">
-
-
- </div>
-    <script>
-    
-      let product1 = {
-        pname: "samsung galaxy m5",
-        price: "$ 200",
-        desc: "water proof",
-      };
-      let dis = document.getElementById("watch");
-    
-      let cont = ` <div class="card post-card shadow-sm">
-        <img
-          src="https://m.media-amazon.com/images/I/61fyBGuO18L._UY1000_.jpg"
-          class="card-img-top post-img"
-          alt="post"
-        />
-        <p class="card-text text-center mt-2">
-          <strong>${product1.pname}</strong>
-        </p>
-
-        <p class="card-text text-center mt-2">
-          <strong>${product1.price}</strong>
-        </p>
-
-        <p class="card-text text-center mt-2">
-          <strong>${product1.desc}</strong>
-        </p>
-
-        <div class="card-body text-center">
-          <!-- Like count -->
-          <h5 id="like">0</h5>
-          <button id="likeBtn" class="btn btn-outline-danger me-2">
-            <i class="bi bi-hand-thumbs-up-fill"></i>
-          </button>
-
-         
+    <div class="container">
+      <div id="postContainer"></div>
     </div>
-          <div class="text-center mt-3 dark">
-            <h5>
-              <strong>Total Reactions: <span id="totalCount">0</span></strong>
-            </h5>
+
+    <script>
+      let post = {
+        title: "SPORTS WATCH",
+        image: "https://m.media-amazon.com/images/I/61fyBGuO18L._UY1000_.jpg",
+        price: "$200",
+        desc: "Waterproof sports watch",
+      };
+
+      let likes = Number(sessionStorage.getItem("likes")) || 0;
+      let dislikes = Number(sessionStorage.getItem("dislikes")) || 0;
+
+      let postContainer = document.getElementById("postContainer");
+
+      postContainer.innerHTML = `
+        <div class="card post-card shadow-sm">
+          <img src="${post.image}" class="card-img-top post-img" alt="post"/>
+          <p class="card-text text-center mt-2">
+            <strong>${post.title}</strong><br>
+            <strong>${post.price}</strong><br>
+            <span>${post.desc}</span>
+          </p>
+
+          <div class="card-body text-center">
+            <h5 id="like">${likes}</h5>
+            <button id="likeBtn" class="btn btn-outline-danger me-2">
+              <i class="bi bi-hand-thumbs-up-fill"></i>
+            </button>
+
+            <h5 id="dislike">${dislikes}</h5>
+            <button id="dislikeBtn" class="btn btn-outline-warning me-2">
+              <i class="bi bi-hand-thumbs-down-fill"></i>
+            </button>
+
+            <div class="text-center mt-3 dark">
+              <h5>
+                <strong>Total Reactions: <span id="totalCount">${
+                  likes + dislikes
+                }</span></strong>
+              </h5>
+            </div>
           </div>
         </div>
-      </div>`;
+      `;
 
-    
+      let likeBtn = document.getElementById("likeBtn");
+      let dislikeBtn = document.getElementById("dislikeBtn");
+      let likeCount = document.getElementById("like");
+      let dislikeCount = document.getElementById("dislike");
+      let totalCount = document.getElementById("totalCount");
 
-     
-        dis.innerHTML = cont;
+      function updateTotals() {
+        likeCount.textContent = likes;
+        dislikeCount.textContent = dislikes;
+        totalCount.textContent = likes + dislikes;
+      }
+
+      likeBtn.addEventListener("click", function () {
+        likes++;
+        updateTotals();
+        sessionStorage.setItem("likes", likes);
+      });
+
+      dislikeBtn.addEventListener("click", function () {
+        dislikes++;
+        updateTotals();
+        sessionStorage.setItem("dislikes", dislikes);
+      });
     </script>
   </body>
 </html>
