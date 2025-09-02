@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function main() {
+        let accbal = 1000;
+        let enteredbal = Number(prompt("enter the balance"));
+        if (enteredbal <= accbal) {
+          console.log(`withdraw sucessfull`);
+          accbal = accbal - enteredbal;
+          console.log(`the remaining amount is ${accbal}`);
+        } else {
+          console.log(`withdraw failed`);
+          console.log(
+            `balance is ${enteredbal} but you have entered ${accbal}`
+          );
+        }
+      }
+      main();
+    </script>
+  </head>
+  <body></body>
+</html>
