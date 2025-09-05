@@ -28,9 +28,9 @@
     </style>
   </head>
   <body>
-    <h1 class="header">Malligai Kadai</h1>
+    <h1 class="header">Pandian Stores</h1>
     <div class="container">
-      <table class="table table-bordered text-center">
+      <table class="table table-bordered text-center  ">
         <thead class="table-dark">
           <tr>
             <th>Title</th>
@@ -44,41 +44,36 @@
 
     <script>
       let post = {
-        title: "SPORTS WATCH",
-        price: "$200",
-        desc: "Waterproof sports watch",
-      };
-      let post2 = {
-        title: "Maida",
-        price: "$20",
-        desc: "pure maida",
-      };
-      let post3 = {
-        title: "GroundNut",
-        price: "$30",
-        desc: "Fresh nuts",
+        post1: {
+          title: "SPORTS WATCH",
+          price: "$200",
+          desc: "Waterproof sports watch",
+        },
+        post2: {
+          title: "Maida",
+          price: "$20",
+          desc: "pure maida",
+        },
+        post3: {
+          title: "GroundNut",
+          price: "$30",
+          desc: "Fresh nuts",
+        },
       };
 
       let postContainer = document.getElementById("postContainer");
+      let content = "";
 
-      postContainer.innerHTML = `
+      for (let key in post) {
+        let p = post[key];
+        content += `
         <tr>
-          <td>${post.title}</td>
-          <td>${post.price}</td>
-          <td>${post.desc}</td>
-
-        </tr>
-        <tr>
-          <td>${post2.title}</td>
-          <td>${post2.price}</td>
-          <td>${post2.desc}</td>
-        </tr>
-        <tr>
-          <td>${post3.title}</td>
-          <td>${post3.price}</td>
-          <td>${post3.desc}</td>
-        </tr>
+          <td>${p.title}</td>
+          <td>${p.price}</td>
+          <td>${p.desc}</td>
       `;
+      }
+      postContainer.innerHTML = content;
     </script>
   </body>
 </html>

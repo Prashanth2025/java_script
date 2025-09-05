@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Color & Card Text</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        height: auto;
+        width: auto;
+      }
+      .active-btn {
+        color: black !important;
+      }
+      .card-title,
+      .card-text {
+        font-weight: bold;
+      }
+      .card-header {
+        background-color: lightcyan;
+      }
+    </style>
+  </head>
+  <body class="text-center p-5">
+    <div>
+      <div
+        class="card text-center m-4 mx-auto border border-dark"
+        style="max-width: 22rem"
+      >
+        <div class="card-header border-dark bg-color-cyan">
+          <button id="btn1" class="btn btn-outline-primary m-2">
+            Button 1
+          </button>
+          <button id="btn2" class="btn btn-outline-success m-2">
+            Button 2
+          </button>
+          <button id="btn3" class="btn btn-outline-danger m-2">Button 3</button>
+          <button id="resetBtn" class="btn btn-outline-dark m-2">
+            Reset Button
+          </button>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="cardTitle">BUTTON THINGS</h5>
+          <p class="card-text" id="cardText">CLICK TO CHANGE COLOR and TEXT</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let cardText = document.getElementById("cardText");
+      let cardTitle = document.getElementById("cardTitle");
+
+      let btn1 = document.getElementById("btn1");
+      let btn2 = document.getElementById("btn2");
+      let btn3 = document.getElementById("btn3");
+      let resetBtn = document.getElementById("resetBtn");
+
+      function resetButtons() {
+        btn1.classList.remove("active-btn");
+        btn2.classList.remove("active-btn");
+        btn3.classList.remove("active-btn");
+      }
+
+      btn1.addEventListener("click", function () {
+        resetButtons();
+        btn1.classList.add("active-btn");
+        cardTitle.textContent = "Button 1 Clicked";
+        cardText.textContent = "VANAKAM";
+      });
+
+      btn2.addEventListener("click", function () {
+        resetButtons();
+        btn2.classList.add("active-btn");
+        cardTitle.textContent = "Button 2 Clicked";
+        cardText.textContent = "NAMASKAR";
+      });
+
+      btn3.addEventListener("click", function () {
+        resetButtons();
+        btn3.classList.add("active-btn");
+        cardTitle.textContent = "Button 3 Clicked";
+        cardText.textContent = "WELCOME";
+      });
+      resetBtn.addEventListener("click", function () {
+        resetButtons();
+        cardTitle.textContent = "BUTTON THINGS";
+        cardText.textContent = "CLICK TO CHANGE COLOR and TEXT";
+      });
+    </script>
+  </body>
+</html>

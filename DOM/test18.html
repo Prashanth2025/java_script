@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+        .h1-ele{
+            color: red;
+        }
+    </style>
+    <p id="myp" style="color: bisque,class" >Lorem ipsum dolor sit amet.</p>
+
+    <button id="btn">get</button>
+    <script>
+      let para = document.getElementById("myp");
+      let graph = para.hasAttribute("style");
+       
+       
+       let b=document.getElementById('btn')
+       b.addEventListener("click",function(){
+        b.setAttribute('class','h1-ele')
+        para.setAttribute('class','h1-ele')
+       })
+
+
+      console.log(graph);
+    </script>
+  </body>
+</html>
