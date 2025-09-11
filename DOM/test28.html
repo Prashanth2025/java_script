@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandian Stores</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-3">
+    <h3 class="text-center">Pandian Stores</h3>
+
+    <!-- Category Buttons -->
+    <div class="text-center mb-3">
+      <button class="btn btn-danger" onclick="filterCategory('chocolate')">
+        Chocolates
+      </button>
+      <button class="btn btn-warning" onclick="filterCategory('masala')">
+        Masala
+      </button>
+      <button class="btn btn-success" onclick="filterCategory('soap')">
+        Soap
+      </button>
+      <button class="btn btn-secondary" onclick="filterCategory('shampoo')">
+        Shampoo
+      </button>
+      <button class="btn btn-dark" onclick="displayProducts(products)">
+        All
+      </button>
+    </div>
+
+    <!-- Price Filter -->
+    <div class="text-center mb-3">
+      <input type="number" id="minPrice" placeholder="Min Price" />
+      <input type="number" id="maxPrice" placeholder="Max Price" />
+      <button class="btn btn-info" onclick="filterByPrice()">
+        Filter by Price
+      </button>
+      <button class="btn btn-secondary" onclick="displayProducts(products)">
+        Reset
+      </button>
+    </div>
+
+    <!-- Table -->
+    <table class="table table-bordered table-striped table-hover text-center">
+      <thead>
+        <tr>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+        </tr>
+      </thead>
+      <tbody id="display-data"></tbody>
+    </table>
+
+    <script>
+      // product list with category
+      const products = [
+        { id: 47, name: "Dairy Milk", price: 120, category: "chocolate" },
+        { id: 21, name: "Milk bar", price: 100, category: "chocolate" },
+        { id: 46, name: "Mysore Sandal", price: 121, category: "soap" },
+        { id: 171, name: "Biriyani Masala", price: 150, category: "masala" },
+        { id: 36, name: "Karthika Shampoo", price: 123, category: "shampoo" },
+        { id: 144, name: "Z Soap", price: 169, category: "soap" },
+      ];
+
+      // show products in table
+      function displayProducts(list) {
+        const data = document.getElementById("display-data");
+        data.innerHTML = "";
+        list.forEach((p) => {
+          data.innerHTML += `<tr>
+          <td>${p.id}</td>
+          <td>${p.name}</td>
+          <td>${p.price}</td>
+        </tr>`;
+        });
+      }
+      
+
+      // filter by category
+      function filterCategory(cat) {
+        const filtered = products.filter((p) => p.category === cat);
+        displayProducts(filtered);
+      }
+
+      // filter by price range
+      function filterByPrice() {
+        const min = parseInt(document.getElementById("minPrice").value) || 0;
+        const max =
+          parseInt(document.getElementById("maxPrice").value) || Infinity;
+        const filtered = products.filter(
+          (p) => p.price >= min && p.price <= max
+        );
+        if(filtered==-false){
+            alert('enter valid price')
+        }
+        
+        displayProducts(filtered);
+      }
+
+      // initial display
+      displayProducts(products);
+    </script>
+  </body>
+</html>

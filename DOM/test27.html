@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandian Stores</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-3">
+    <h3 class="text-center">Pandian Stores</h3>
+
+    <!-- Sort Buttons -->
+    <div class="text-center mb-3">
+      <button class="btn btn-primary" id="asec">l to h</button>
+      <button class="btn btn-success" id="dsec" >
+        h to l
+      </button>
+     <input type="number" placeholder="min" id="min">
+     <input type="number" placeholder="max" id="max">
+     <button id="sort">click</button>
+    </div>
+
+    <!-- Table -->
+    <table class="table table-bordered table-striped table-hover text-center">
+      <thead>
+        <tr>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+        </tr>
+      </thead>
+      <tbody id="display-data"></tbody>
+    </table>
+
+    <script>
+      // Data
+      const Product = [
+        { Product_Id: 47, Product_Name: "Dairy Milk", Product_Price: 120 },
+        { Product_Id: 24, Product_Name: "Milky Bar", Product_Price: 100 },
+        { Product_Id: 46, Product_Name: "Mysore Sandal", Product_Price: 120 },
+        {
+          Product_Id: 171,
+          Product_Name: "Biriyani Masala",
+          Product_Price: 150,
+        },
+        {
+          Product_Id: 36,
+          Product_Name: "Karthika Shampoo",
+          Product_Price: 123,
+        },
+        { Product_Id: 144, Product_Name: "Z Soap", Product_Price: 169 },
+      ];
+let asec=document.getElementById('asec')
+let dsec=document.getElementById('dsec')
+let sort=document.getElementById('sort')
+let min=document.getElementById('min')
+let max=document.getElementById('max')
+      // Display products in table
+      function displayProducts(list) {
+        const data = document.getElementById("display-data");
+        data.innerHTML = ""; // clear table
+        list.forEach((p) => {
+          data.innerHTML += `
+          <tr>
+            <td>${p.Product_Id}</td>
+            <td>${p.Product_Name}</td>
+            <td>${p.Product_Price}</td>
+          </tr>
+        `;
+        });
+      }
+   
+      displayProducts(Product);
+      // Sort functions
+    
+
+     asec.addEventListener("click",()=>{
+        let asort=Product.sort((a,b)=>a.Product_Price-b.Product_Price)
+        displayProducts(asort)
+     })
+      dsec.addEventListener("click",()=>{
+        let asort=Product.sort((a,b)=>b.Product_Price-a.Product_Price)
+        displayProducts(asort)
+        
+     })
+
+sort.addEventListener("click",()=>{
+let v1= min.value;
+let v2=max.value;
+const filtered = Product.filter(p => p.Product_Price >= v1 && p.Product_Price <= v2);
+displayProducts(filtered)
+})
+  
+
+
+    </script>
+  </body>
+</html>

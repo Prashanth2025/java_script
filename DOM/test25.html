@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Portal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-0">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Student Portal</a>
+      </div>
+    </nav>
+
+    <!-- Gender Filter -->
+    <div class="d-flex justify-content-center mt-4 p-2 gap-2">
+      <button class="btn btn-lg btn-danger" onclick="filterGender('Female')">
+        Female
+      </button>
+      <button class="btn btn-lg btn-warning" onclick="filterGender('Male')">
+        Male
+      </button>
+      <button class="btn btn-lg btn-primary" onclick="filterGender('all')">
+        All
+      </button>
+    </div>
+
+    <!-- Marks Filter -->
+    <div class="d-flex justify-content-center ml-3 mt-3 p-2 gap-2">
+      <button class="btn btn-lg btn-success" onclick="filterMarks('above')">
+        Passed Students
+      </button>
+      <button class="btn btn-lg btn-secondary" onclick="filterMarks('below')">
+        Failed Students
+      </button>
+      <button class="btn btn-lg btn-dark" onclick="displayStudents(students)">
+        All Marks
+      </button>
+    </div>
+
+    <!-- Table -->
+    <section class="container mt-3">
+      <table class="table table-bordered table-striped table-hover text-center">
+        <thead>
+          <tr>
+            <th class="text-primary">Stud Id</th>
+            <th class="text-warning">Stud Name</th>
+            <th class="text-danger">Stud Mail</th>
+            <th class="text-dark">Stud Marks</th>
+            <th class="text-secondary">Stud Gender</th>
+          </tr>
+        </thead>
+        <tbody id="display-data"></tbody>
+      </table>
+    </section>
+
+    <script>
+      // Student data
+      let students = [
+        {
+          stud_Id: 110,
+          stud_Name: "Prashanth",
+          stud_Mail: "prashanth@gmail.com",
+          stud_Marks: 80,
+          stud_Gender: "Male",
+        },
+        {
+          stud_Id: 120,
+          stud_Name: "Anu",
+          stud_Mail: "anugirl1142@gmail.com",
+          stud_Marks: 85,
+          stud_Gender: "Female",
+        },
+        {
+          stud_Id: 130,
+          stud_Name: "Kiran",
+          stud_Mail: "kiran243@gmail.com",
+          stud_Marks: 75,
+          stud_Gender: "Male",
+        },
+        {
+          stud_Id: 140,
+          stud_Name: "Priya",
+          stud_Mail: "priya143@gmail.com",
+          stud_Marks: 90,
+          stud_Gender: "Female",
+        },
+        {
+          stud_Id: 150,
+          stud_Name: "Kushi",
+          stud_Mail: "kushi46@gmail.com",
+          stud_Marks: 80,
+          stud_Gender: "Female",
+        },
+        {
+          stud_Id: 160,
+          stud_Name: "Loki",
+          stud_Mail: "mr_asgard_prince@gmail.com",
+          stud_Marks: 90,
+          stud_Gender: "Male",
+        },
+      ];
+
+      let data = document.getElementById("display-data");
+
+      // Show students in table
+      function displayStudents(list) {
+        data.innerHTML = "";
+        list.forEach((student) => {
+          data.innerHTML += `
+            <tr>
+              <td>${student.stud_Id}</td>
+              <td>${student.stud_Name}</td>
+              <td>${student.stud_Mail}</td>
+              <td>${student.stud_Marks}</td>
+              <td>${student.stud_Gender}</td>
+            </tr>
+          `;
+        });
+      }
+
+      // Gender filter
+      function filterGender(Gender) {
+        if (Gender === "all") {
+          displayStudents(students);
+        } else {
+          let filtered = students.filter((stu) => stu.stud_Gender === Gender);
+          displayStudents(filtered);
+        }
+      }
+
+      // Marks filter
+      function filterMarks(score) {
+        if (score === "above") {
+          let filtered = students.filter((stu) => stu.stud_Marks >= 80);
+          displayStudents(filtered);
+        } else if (score === "below") {
+          let filtered = students.filter((stu) => stu.stud_Marks < 80);
+          displayStudents(filtered);
+        }
+      }
+
+      // Show all on load
+      displayStudents(students);
+    </script>
+  </body>
+</html>
