@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Sports Watch",
+    "img": "https://m.media-amazon.com/images/I/61fyBGuO18L._UY1000_.jpg",
+    "price": 1500
+  },
+  {
+    "name": "Long Coat",
+    "img": "https://www.birminghamwear.com/cdn/shop/files/Captured_ecran2023-09-22a13.49.45_92cc33a7-c76a-46a2-bde6-ec5a9466bf48_600x.png?v=1728332870",
+    "price": 2200
+  },
+  {
+    "name": "Bluetooth Earbuds",
+    "img": "https://m.media-amazon.com/images/I/71W+9a4n8oL._SL1500_.jpg",
+    "price": 1299
+  }
+]

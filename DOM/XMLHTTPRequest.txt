@@ -1,0 +1,21 @@
+XMLHTTPRequest 
+Shimmer ui
+json
+create an object 
+create a reqest
+send a request 
+once request has been sent it may take some time to load 
+once the data is loaded successfully 
+
+
+AJAX request
+XMLHTTPRequest
+
+
+function fetch(){
+    xhr.addEventListener("progress",function(){
+        setTimeout(function(){
+
+        },2000)
+    })
+}

@@ -1,0 +1,88 @@
+body {
+  width: auto;
+  height: auto;
+  margin-top: 0%;
+  margin-left: 0%;
+  overflow: hidden;
+}
+.text {
+  width: 100%;
+  height: 1px;
+  background-color: aqua;
+  padding: 30px;
+  margin-top: 0px;
+  font-family: fantasy;
+}
+
+.divHead {
+  text-align: center;
+  font-family: fantasy;
+}
+table {
+  border: 1px solid black;
+  border-collapse: separate;
+  width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+  margin-left: 20px;
+  border-radius: 10px;
+}
+.form {
+  border: 1px solid black;
+  width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+  border-radius: 10px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.square-cell {
+  width: 100px;
+  height: 100px;
+}
+img {
+  width: 100px;
+  object-fit: cover;
+}
+form input,
+form select,
+form button {
+  padding: 8px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+  width: 95%;
+}
+table button {
+  margin-left: 10px;
+  align-items: center;
+  border-radius: 5px;
+}
+.name {
+  margin-left: 10px;
+}
+form button {
+  width: 50%;
+  margin: 0 auto;
+  background-color: green;
+  display: block;
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: darkgreen;
+}
+form input:focus {
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+}

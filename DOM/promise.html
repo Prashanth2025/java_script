@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // const { promise } = require("zod");
+
+      // // let promise=new promise
+
+      // let a1 = ["apple", "orange", "grapes"];
+
+      // let [a, b, c] = a1;
+      // for (let items of a1) console.log(items);
+
+      let p1 = new Promise(function (resolve, reject) {
+        let getData = true;
+
+        if (getData) {
+          resolve(["orange", "apple"]);
+        } else {
+          reject("error");
+        }
+      });
+
+      p1.then(function (items) {
+        console.log(items);
+        for (let data of items) console.log(data);
+      });
+    </script>
+  </body>
+</html>
