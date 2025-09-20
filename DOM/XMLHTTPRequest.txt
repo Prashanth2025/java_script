@@ -5,7 +5,7 @@ create an object
 create a reqest
 send a request 
 once request has been sent it may take some time to load 
-once the data is loaded successfully 
+the data is loaded successfully 
 
 
 AJAX request
